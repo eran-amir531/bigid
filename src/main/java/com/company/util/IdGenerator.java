@@ -2,6 +2,7 @@ package com.company.util;
 
 import java.util.Random;
 
+//this class generate id's by increment the currantId++
 public class IdGenerator {
     private static int idLength = 9;
     private static Integer currantId = 0;

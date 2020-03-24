@@ -3,6 +3,9 @@ package com.company.util;
 import java.util.HashMap;
 import java.util.Random;
 
+//this class can generate 2 types of random location
+//1.random city with preset country ("Tel aviv", "Israel")
+//2.random city and country ("Tel aviv","United Kingdom")
 public class LocationGenerator {
 
     private static HashMap<String, String> city_country = new HashMap<String, String>() {{
