@@ -1,6 +1,10 @@
 package com.company;
 
-import com.company.entities.User;
+import com.company.entities.RegularUser;
+import com.company.enums.UsersTypes;
+
+import static com.company.UsersPrototypeFactory.createRegularUsers;
+import static com.company.printStrategy.printAllUsers;
 
 public class Main {
 
@@ -8,8 +12,8 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.printf("----------> start printing %s user data <----------\n", numOfUserToPrint);
-        for (int i = 0; i < numOfUserToPrint; i++) {
-            new User().printUserData();
-        }
+        createRegularUsers(numOfUserToPrint);
+        printAllUsers(UsersTypes.REGULAR_USER);
+
     }
 }
