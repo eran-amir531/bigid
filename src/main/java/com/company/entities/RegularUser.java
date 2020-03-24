@@ -2,11 +2,13 @@ package com.company.entities;
 
 import com.company.enums.FirstName;
 import com.company.enums.LastName;
+import com.company.enums.UsersTypes;
 import com.company.util.LocationGenerator;
 
 import static com.company.util.IdGenerator.createId;
 
-public class User {
+public class RegularUser implements UserPrototype {
+    UsersTypes usersType = UsersTypes.REGULAR_USER;
     String id;
     String email;
     FirstName firstName;
@@ -14,7 +16,7 @@ public class User {
     String city;
     String country;
 
-    public User(String id, FirstName firstName, LastName lastName, String email, String city, String country) {
+    public RegularUser(String id, FirstName firstName, LastName lastName, String email, String city, String country) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -23,13 +25,17 @@ public class User {
         this.country = country;
     }
 
-    public User(){
+    public RegularUser(){
         this.id = createId();
         this.firstName = FirstName.getRandomValue();
         this.lastName = LastName.getRandomValue();
         this.email = firstName.getValue() + "." + lastName.getValue() + "@company.com";
         this.city = LocationGenerator.getRandomCity();
         this.country = LocationGenerator.getCountry(city);
+    }
+
+    public UsersTypes getUsersType(){
+        return this.usersType;
     }
 
     public String getId() {
